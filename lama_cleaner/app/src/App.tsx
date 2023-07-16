@@ -70,6 +70,8 @@ function App() {
     return nanoid()
   }, [file])
 
+
+
   ///
 
   const [isDragging, setIsDragging] = React.useState(false)

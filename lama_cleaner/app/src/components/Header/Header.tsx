@@ -1,6 +1,6 @@
 import { FolderIcon, PhotoIcon } from '@heroicons/react/24/outline'
 import { PlayIcon, ReloadIcon } from '@radix-ui/react-icons'
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import * as PopoverPrimitive from '@radix-ui/react-popover'
 import {
@@ -116,6 +116,7 @@ const Header = () => {
                 type="file"
                 onChange={ev => {
                   const newFile = ev.currentTarget.files?.[0]
+                  console.log('newFile', newFile)
                   if (newFile) {
                     setFile(newFile)
                   }
@@ -229,7 +230,7 @@ const Header = () => {
         {(isSD || isPix2Pix) && file ? <PromptInput /> : <></>}
 
         <div className="header-icons-wrapper">
-          <CoffeeIcon />
+          {/* <CoffeeIcon /> */}
           <ThemeChanger />
           <div className="header-icons">
             <Shortcuts />

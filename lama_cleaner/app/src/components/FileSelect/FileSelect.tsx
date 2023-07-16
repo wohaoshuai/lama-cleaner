@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import useResolution from '../../hooks/useResolution'
 
 type FileSelectProps = {
@@ -13,7 +13,34 @@ export default function FileSelect(props: FileSelectProps) {
 
   const resolution = useResolution()
 
+  useEffect(() => {
+    const receiveMessage = (event: MessageEvent) => {
+      // Check the origin of the message
+      if (event.origin !== 'http://localhost:3000') {
+        return
+      }
+
+      // Access the message content
+      const message = event.data
+      if (message) {
+        onFileSelected(message)
+      }
+
+      // Handle the received message
+      console.log('Received message in iframe:', message)
+    }
+
+    // Add event listener for the 'message' event
+    window.addEventListener('message', receiveMessage)
+
+    // Clean up the event listener when component unmounts
+    // return () => {
+    //   window.removeEventListener('message', receiveMessage)
+    // }
+  }, [])
+
   function onFileSelected(file: File) {
+    console.log('onFileSeme', onFileSelected)
     if (!file) {
       return
     }
@@ -27,6 +54,7 @@ export default function FileSelect(props: FileSelectProps) {
       if (file.size > 20 * 1024 * 1024) {
         throw new Error('file too large')
       }
+      console.log('onFileSeme2', onFileSelected)
       onSelection(file)
     } catch (e) {
       // eslint-disable-next-line
