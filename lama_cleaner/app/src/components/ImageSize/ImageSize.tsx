@@ -12,7 +12,8 @@ const ImageSize = () => {
 
   return (
     <div className="imageSize">
-      {imageWidth}x{imageHeight}
+      Hint: draw to clean up
+      {/* {imageWidth}x{imageHeight} */}
     </div>
   )
 }

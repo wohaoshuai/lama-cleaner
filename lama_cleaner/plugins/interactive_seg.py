@@ -68,8 +68,8 @@ class InteractiveSeg(BasePlugin):
         mask = cv2.dilate(
             mask, np.ones((kernel_size, kernel_size), np.uint8), iterations=1
         )
-        # fronted brush color "ffcc00bb"
+        # fronted brush color "00a6ffbb"
         res_mask = np.zeros((mask.shape[0], mask.shape[1], 4), dtype=np.uint8)
-        res_mask[mask == 255] = [255, 203, 0, int(255 * 0.73)]
+        res_mask[mask == 255] = [0, 166, 187, int(255 * 0.73)]
         res_mask = cv2.cvtColor(res_mask, cv2.COLOR_BGRA2RGBA)
         return res_mask

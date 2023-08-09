@@ -70,10 +70,6 @@ function App() {
     return nanoid()
   }, [file])
 
-
-
-  ///
-
   const [isDragging, setIsDragging] = React.useState(false)
   const dragCounter = React.useRef(0)
 
@@ -180,7 +176,6 @@ function App() {
 
   return (
     <div className="lama-cleaner">
-      <Header />
       <SDProgress />
       <Workspace key={workspaceId} />
     </div>

@@ -154,7 +154,7 @@ export default function FileSelect(props: FileSelectProps) {
         <p className="file-select-message">
           {resolution === 'desktop'
             ? 'Click here or drag an image file'
-            : 'Tap here to load your picture'}
+            : 'Loading...'}
         </p>
       </div>
     </label>

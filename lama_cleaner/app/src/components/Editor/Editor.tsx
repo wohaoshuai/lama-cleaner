@@ -75,7 +75,7 @@ import MakeGIF from './MakeGIF'
 const TOOLBAR_SIZE = 200
 const MIN_BRUSH_SIZE = 10
 const MAX_BRUSH_SIZE = 200
-const BRUSH_COLOR = '#ffcc00bb'
+const BRUSH_COLOR = '#00a6ffbb'
 
 interface Line {
   size?: number
@@ -1750,7 +1750,7 @@ export default function Editor() {
             onClick={redo}
             disabled={disableRedo()}
           />
-          <Button
+          {/* <Button
             toolTip="Show Original"
             icon={<EyeIcon />}
             className={showOriginal ? 'eyeicon-active' : ''}
@@ -1770,7 +1770,7 @@ export default function Editor() {
               }, 300)
             }}
             disabled={renders.length === 0}
-          />
+          /> */}
           <Button
             toolTip="Save Image"
             icon={<ArrowDownTrayIcon />}
