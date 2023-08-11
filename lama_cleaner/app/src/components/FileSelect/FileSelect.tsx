@@ -16,9 +16,9 @@ export default function FileSelect(props: FileSelectProps) {
   useEffect(() => {
     const receiveMessage = (event: MessageEvent) => {
       // Check the origin of the message
-      if (event.origin !== 'http://localhost:3000') {
-        return
-      }
+      // if (event.origin !== 'http://localhost:3000') {
+      //   return
+      // }
 
       // Access the message content
       const message = event.data
