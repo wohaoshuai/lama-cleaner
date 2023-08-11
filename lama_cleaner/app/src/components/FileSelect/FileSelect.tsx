@@ -40,16 +40,15 @@ export default function FileSelect(props: FileSelectProps) {
   }, [])
 
   function onFileSelected(file: File) {
-    console.log('onFileSeme', onFileSelected)
-    if (!file) {
-      return
-    }
-    // Skip non-image files
-    const isImage = file.type.match('image.*')
-    if (!isImage) {
-      return
-    }
     try {
+      if (!file) {
+        return
+      }
+      // Skip non-image files
+      const isImage = file.type.match('image.*')
+      if (!isImage) {
+        return
+      }
       // Check if file is larger than 20mb
       if (file.size > 20 * 1024 * 1024) {
         throw new Error('file too large')
@@ -58,7 +57,8 @@ export default function FileSelect(props: FileSelectProps) {
       onSelection(file)
     } catch (e) {
       // eslint-disable-next-line
-      alert(`error: ${(e as any).message}`)
+      console.log('onFileSelecgted error', e)
+      // alert(`error: ${(e as any).message}`)
     }
   }
 
